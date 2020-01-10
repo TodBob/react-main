@@ -1,0 +1,59 @@
+html, body {
+    margin: 0;
+    height: 110vh;
+}
+
+
+#app {
+    
+
+
+#main {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+
+
+    span {
+        white-space: nowrap;
+    }
+
+
+
+    @media(max-width: 1000px) {
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+
+    @media(max-width: 600px) {
+        grid-template-columns: 1fr;
+        text-align: center;
+    
+        li {
+            list-style: none;
+        }
+
+        ul {
+            padding-left: 0;
+        }
+
+        div {
+            padding: 5px !important;
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+}
