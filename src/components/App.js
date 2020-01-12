@@ -9,7 +9,7 @@ import {
 import MainDataSection from './MainDataSection'
 import Cart from './Cart'
 
-
+import ProductInfo from "../containers/ProductInfo";
 import NavBar from '../containers/NavBar'
 
 import { connect } from 'react-redux';
@@ -22,17 +22,23 @@ function App({getData}) {
   },[] )
 
   return (
-    <div id='app'>
+    <div id="app">
       <NavBar />
 
       <Switch>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/">
-            <MainDataSection />
-          </Route>
-        </Switch>
+        <Route path="/cart">
+          <Cart />
+        </Route>
+        <Route path="/product/:productId">
+          <ProductInfo />
+        </Route>
+        <Route exact path="/">
+          <MainDataSection />
+        </Route>
+        <Route path="*">
+          <MainDataSection />
+        </Route>
+      </Switch>
     </div>
   );
 }

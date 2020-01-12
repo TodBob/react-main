@@ -1,6 +1,8 @@
 import React from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
+import { Link } from "react-router-dom";
+
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
@@ -18,14 +20,19 @@ let SingleCard = ({data, addToCart, cartItems, removeFromCart}) => {
         showExpandableButton={false}
       />
       <CardText>
-      { isInCart ? <RemoveShoppingCartIcon onClick={() => removeFromCart(data.created)} /> : <AddShoppingCartIcon  onClick={() => addToCart( data )} />
-
-      }
+        {isInCart ? (
+          <RemoveShoppingCartIcon
+            onClick={() => removeFromCart(data.created)}
+          />
+        ) : (
+          <AddShoppingCartIcon onClick={() => addToCart(data)} />
+        )}
         <ul>
           <li>{`height: ${data.height}`}</li>
           <li>{`hair color: ${data.hair_color}`}</li>
           <li>{`gender: ${data.gender}`}</li>
         </ul>
+        <Link to={`/product/${data.url.match(/\d+/g)}`}>More Info</Link>
       </CardText>
     </Card>
   );

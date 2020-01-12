@@ -1,7 +1,12 @@
 
 
 export const getData = () => ({
-    type: 'GET_DATA',
+         type: "GET_DATA"
+       });
+
+export const getDataInfo = payload => ({
+  type: "GET_DATA_INFO",
+  payload
 });
 
 export const addToCart = payload => ({
