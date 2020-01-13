@@ -1,3 +1,5 @@
+**Right now I have Branch ,,Refactoring_whole_redux/saga,, where I started refactor a whole Redux implementation
+
 This is my main project which I want send with CV as code preview. But this project is still in progress and need some love.
 Sometimes I try some new things, try to learn something new. And because of this, some parts will need refactor or restructer the code.
 
