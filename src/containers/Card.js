@@ -21,11 +21,11 @@ let SingleCard = ({data, addToCart, cartItems, removeFromCart}) => {
       />
       <CardText>
         {isInCart ? (
-          <RemoveShoppingCartIcon
+          <RemoveShoppingCartIcon className='shopping_cart'
             onClick={() => removeFromCart(data.created)}
           />
         ) : (
-          <AddShoppingCartIcon onClick={() => addToCart(data)} />
+          <AddShoppingCartIcon className='shopping_cart' onClick={() => addToCart(data)} />
         )}
         <ul>
           <li>{`height: ${data.height}`}</li>

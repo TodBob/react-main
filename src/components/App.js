@@ -13,12 +13,12 @@ import ProductInfo from "../containers/ProductInfo";
 import NavBar from '../containers/NavBar'
 
 import { connect } from 'react-redux';
-import { getData } from '../actions'
+import { peopleData } from '../actions'
 
-function App({getData}) {
+function App({peopleData}) {
 
   useEffect( () => {
-    getData()
+    peopleData()
   },[] )
 
   return (
@@ -44,7 +44,7 @@ function App({getData}) {
 }
 
 const mapDispatchToProps = {
-  getData,
+  peopleData,
 };
 
 export default connect(null, mapDispatchToProps)(App)

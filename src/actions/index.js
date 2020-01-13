@@ -1,24 +1,48 @@
+import {
+  GET_PEOPLE_DATA,
+  GET_DATA_INFO,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  MAKE_ORDER,
+  SET_LOADING,
+  SET_ORDERING,
+  IS_ERROR
+} from '../constants/actionTypes'
 
-
-export const getData = () => ({
-         type: "GET_DATA"
-       });
-
-export const getDataInfo = payload => ({
-  type: "GET_DATA_INFO",
-  payload
+export const peopleData = () => ({
+  type: GET_PEOPLE_DATA
 });
 
-export const addToCart = payload => ({
-    type: 'ADD_TO_CART',
-    payload
+export const getDataInfo = data => ({
+  type: GET_DATA_INFO,
+  data
+});
+
+export const addToCart = data => ({
+  type: ADD_TO_CART,
+  data
 })
 
-export const removeFromCart = payload => ({
-    type: 'REMOVE_FROM_CART',
-    payload
+export const removeFromCart = data => ({
+  type: REMOVE_FROM_CART,
+  data
 })
 
 export const makeOrder = () => ({
-    type: 'MAKE_ORDER'
+  type: MAKE_ORDER
+})
+
+export const setLoading = (data) => ({
+  type: SET_LOADING,
+  data
+})
+
+export const setOrdering = (data) => ({
+  type: SET_ORDERING,
+  data
+})
+
+export const isError = (data) => ({
+  type: IS_ERROR,
+  data
 })

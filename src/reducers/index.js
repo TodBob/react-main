@@ -1,3 +1,11 @@
+import { combineReducers } from 'redux'
+
+import getData from './peopleData'
+import getInfoData from './getInfoData'
+import addRemoveItem from './addRemoveItem'
+import makeOrder from './makeOrder'
+
+
 const reducer = (state = { cart: [], infoData: {} }, action) => {
   switch (action.type) {
     case "GET_DATA":
@@ -11,6 +19,8 @@ const reducer = (state = { cart: [], infoData: {} }, action) => {
         cart: storage ? storage : []
       };
 
+
+
     case "GET_DATA_INFO":
       return { ...state, loading: true };
     case "DATA_RECEIVED_INFO":
@@ -19,6 +29,9 @@ const reducer = (state = { cart: [], infoData: {} }, action) => {
         infoData: action.infoData,
         loading: false
       };
+
+
+
 
     case "ADD_TO_CART":
       localStorage.setItem(
@@ -30,15 +43,28 @@ const reducer = (state = { cart: [], infoData: {} }, action) => {
       const newArr = state.cart.filter(val => val.created !== action.payload);
       localStorage.setItem("cart", JSON.stringify(newArr));
       return { ...state, cart: newArr };
-    case "MAKE_ORDER":
+    
+
+    
+      case "MAKE_ORDER":
       return { ...state, isOrdering: true };
     case "MAKE_ORDER_ASYNC":
       localStorage.clear();
       return { ...state, cart: [], isOrdering: false };
+      
+
+
+
     default:
       return state;
   }
 };
 export default reducer;
 
-/* JSON.parse(localStorage.getItem("names")); */
+
+/*  export default combineReducers({
+  getData,
+  getInfoData,
+  addRemoveItem,
+  makeOrder
+})  */

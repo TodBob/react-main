@@ -71,20 +71,29 @@ let ProductInfo = ({
             <Typography variant="body2" component="p">
               {bull} Gender: {gender}
             </Typography>
+            <hr />
+            <Typography variant="body2" component="p">
+              Price: {height} €
+            </Typography>
           </CardContent>
-          <CardActions>
+
+        <div className='footer'>
+        <CardActions>
             <Link to="/">
               <Button size="small">Back</Button>
             </Link>
           </CardActions>
 
           {isInCart ? (
-            <RemoveShoppingCartIcon
+            <RemoveShoppingCartIcon className='shopping_cart'
               onClick={() => removeFromCart(infoData.created)}
             />
           ) : (
-            <AddShoppingCartIcon onClick={() => addToCart(infoData)} />
+            <AddShoppingCartIcon className='shopping_cart' onClick={() => addToCart(infoData)} />
           )}
+        </div>
+
+          
         </Card>
       )}
     </div>

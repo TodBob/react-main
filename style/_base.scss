@@ -6,7 +6,9 @@ html, body {
 
 #app {
     
-
+    .shopping_cart {
+        cursor: pointer;
+    }
 
 #main {
     width: 90%;
@@ -21,6 +23,8 @@ html, body {
     span {
         white-space: nowrap;
     }
+
+    
 
 
 
