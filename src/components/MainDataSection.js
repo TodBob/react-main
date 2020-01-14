@@ -4,16 +4,16 @@ import { connect } from 'react-redux'
 import Card from '../containers/Card'
 import Loading from '../containers/Loading'
 
-import {getDataArray} from '../selectors/peopleData'
+import { getDataArray } from '../selectors/peopleData'
 
 
 
 let MainDataSection = ({ peopleData }) => (
   peopleData ?
     <div id='main'  >
-       {peopleData.map(e => {
+      {peopleData.map(e => {
         return <Card key={e.created} data={e} />
-      })} 
+      })}
     </div> :
     <Loading />
 );

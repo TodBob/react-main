@@ -53,6 +53,7 @@ export const fetchPeopleData = () => ({
   type: FETCH_PEOPLE_DATA
 })
 
-export const fetchInfoData = () => ({
-  type: FETCH_INFO_DATA
+export const fetchInfoData = (data) => ({
+  type: FETCH_INFO_DATA,
+  data
 })

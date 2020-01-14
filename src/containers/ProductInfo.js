@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 import { connect } from "react-redux";
-import { getDataInfo, addToCart, removeFromCart } from "../actions";
+import { fetchInfoData, addToCart, removeFromCart } from "../actions";
 import { Link } from "react-router-dom";
 
 import Loading from './Loading'
@@ -16,10 +16,15 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+import { getInfoData } from '../selectors/infoData'
+import {getLoading} from '../selectors/loading'
+import {getCartItems} from '../selectors/cartItems'
+
+
 
 
 let ProductInfo = ({
-  getDataInfo,
+  fetchInfoData,
   infoData,
   loading,
   cartItems,
@@ -40,14 +45,14 @@ let ProductInfo = ({
   } = infoData;
 
   useEffect(() => {
-    getDataInfo(productId);
+    fetchInfoData(productId);
   }, []);
 
   return (
     <div className="productInfo">
-      {loading ? (
+     {loading ? 
         <Loading />
-      ) : (
+       : (
         <Card className="card" variant="outlined">
           <CardContent>
             <Typography className="title" color="textSecondary" gutterBottom>
@@ -95,18 +100,20 @@ let ProductInfo = ({
 
           
         </Card>
-      )}
+      )} 
+
+
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  infoData: state.infoData,
-  loading: state.loading,
-  cartItems: state.cart
+  infoData: getInfoData(state),
+  loading: getLoading(state),
+  cartItems: getCartItems(state)
 });
 const mapDispatchToProps = {
-  getDataInfo,
+  fetchInfoData,
   addToCart,
   removeFromCart
 };

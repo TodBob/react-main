@@ -9,6 +9,9 @@ import CartItem from '../containers/CartItem'
 
 import { makeOrder } from '../actions'
 
+import { getCartItems } from '../selectors/cartItems'
+import {getOrdering} from '../selectors/isOrdering'
+
 
 let Cart = ({ cart, makeOrder, isOrdering }) => {
 
@@ -49,9 +52,9 @@ let Cart = ({ cart, makeOrder, isOrdering }) => {
     )
 }
 
-const mapStateToProps = ({ cart, isOrdering }) => ({
-    cart,
-    isOrdering
+const mapStateToProps = (state) => ({
+    cart: getCartItems(state),
+    isOrdering: getOrdering(state)
 })
 
 const mapDispatchToProps = {

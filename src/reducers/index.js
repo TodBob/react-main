@@ -1,23 +1,23 @@
 import { combineReducers } from 'redux'
 
 import peopleData from './peopleData'
-import getInfoData from './getInfoData'
+import infoData from './getInfoData'
 import cartItems from './addRemoveItem'
 import makeOrder from './makeOrder'
 import error from './error'
 import isLoading from './setLoading'
-import setOrderign from './setOrdering'
+import setOrdering from './setOrdering'
 
 
 
 export default combineReducers({
   peopleData,
-  getInfoData,
+  infoData,
   cartItems,
   makeOrder,
   error,
   isLoading,
-  setOrderign
+  setOrdering
 })  
 
 
