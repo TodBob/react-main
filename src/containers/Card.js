@@ -9,9 +9,11 @@ import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import {connect} from 'react-redux'
 import {addToCart, removeFromCart} from '../actions'
 
-let SingleCard = ({data, addToCart, cartItems, removeFromCart}) => {
-  const isInCart = cartItems.find( e => e.created === data.created)
+import {getCartItems} from '../selectors/cartItems'
 
+let SingleCard = ({data, cartItems, addToCart, removeFromCart}) => {
+   const isInCart = cartItems.find( e => e.created === data.created)  
+console.log(cartItems)
   return (
     <Card>
       <CardHeader
@@ -20,13 +22,13 @@ let SingleCard = ({data, addToCart, cartItems, removeFromCart}) => {
         showExpandableButton={false}
       />
       <CardText>
-        {isInCart ? (
+       {isInCart ? (
           <RemoveShoppingCartIcon className='shopping_cart'
             onClick={() => removeFromCart(data.created)}
           />
         ) : (
           <AddShoppingCartIcon className='shopping_cart' onClick={() => addToCart(data)} />
-        )}
+        )} 
         <ul>
           <li>{`height: ${data.height}`}</li>
           <li>{`hair color: ${data.hair_color}`}</li>
@@ -39,7 +41,7 @@ let SingleCard = ({data, addToCart, cartItems, removeFromCart}) => {
 }
 
 const mapStateToProps = (state) => ({
-  cartItems: state.cart
+  cartItems: getCartItems(state)
 })
 
 const mapDispatchToProps = {

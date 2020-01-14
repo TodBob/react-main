@@ -6,7 +6,9 @@ import {
   MAKE_ORDER,
   SET_LOADING,
   SET_ORDERING,
-  IS_ERROR
+  IS_ERROR,
+  FETCH_PEOPLE_DATA,
+  FETCH_INFO_DATA
 } from '../constants/actionTypes'
 
 export const peopleData = () => ({
@@ -45,4 +47,12 @@ export const setOrdering = (data) => ({
 export const isError = (data) => ({
   type: IS_ERROR,
   data
+})
+
+export const fetchPeopleData = () => ({
+  type: FETCH_PEOPLE_DATA
+})
+
+export const fetchInfoData = () => ({
+  type: FETCH_INFO_DATA
 })

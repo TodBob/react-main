@@ -8,24 +8,23 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import 'typeface-roboto';
 
 import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
 import reducer from './reducers';
 import rootSaga from './rootSaga';
 
 import { BrowserRouter as Router } from "react-router-dom";
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
     reducer,
-    applyMiddleware(sagaMiddleware, logger),
+    composeEnhancers(applyMiddleware(sagaMiddleware, logger)),
 );
 
 sagaMiddleware.run(rootSaga);
-
 
 
 ReactDOM.render(

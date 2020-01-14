@@ -13,18 +13,18 @@ import ProductInfo from "../containers/ProductInfo";
 import NavBar from '../containers/NavBar'
 
 import { connect } from 'react-redux';
-import { peopleData } from '../actions'
+import { fetchPeopleData } from '../actions'
 
-function App({peopleData}) {
+function App({fetchPeopleData}) {
 
   useEffect( () => {
-    peopleData()
+    fetchPeopleData()
   },[] )
 
   return (
     <div id="app">
-      <NavBar />
-
+       <NavBar /> 
+      
       <Switch>
         <Route path="/cart">
           <Cart />
@@ -44,7 +44,7 @@ function App({peopleData}) {
 }
 
 const mapDispatchToProps = {
-  peopleData,
+  fetchPeopleData,
 };
 
 export default connect(null, mapDispatchToProps)(App)

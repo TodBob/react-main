@@ -1,4 +1,4 @@
-const initialState = {singlePeopleData = {}}
+const initialState = {singlePeopleData: {}}
 
 export default function getInfoData(state = initialState, action) {
     switch (action.type) {

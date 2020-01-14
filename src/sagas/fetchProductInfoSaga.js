@@ -1,7 +1,7 @@
 import { put } from "redux-saga/effects";
 import { baseApi } from '../API'
 
-export function* fetchProductInfo(productId) {
+export function* fetchProductInfoSaga(productId) {
     yield put({ type: "SET_LOADING", data: true });
 
     try {

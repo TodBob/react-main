@@ -10,3 +10,6 @@ export const SET_LOADING = 'SET_LOADING'
 export const SET_ORDERING = 'SET_ORDERING'
 
 export const IS_ERROR = 'IS_ERROR';
+
+export const FETCH_PEOPLE_DATA = 'FETCH_PEOPLE_DATA'
+export const FETCH_INFO_DATA = 'FETCH_INFO_DATA'
