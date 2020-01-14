@@ -1,4 +1,4 @@
-const initialState = {ordering: false}
+const initialState =  {ordering: false}
 
 export default function setOrdering(state = initialState, action) {
     switch (action.type) {

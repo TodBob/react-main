@@ -1,10 +1,7 @@
-export default function makeOrder(state = {isOrdering: false}, action) {
+export default function makeOrder(state = {test: 'test'}, action) {
     switch(action.type) {
         case "MAKE_ORDER":
-      return { ...state, isOrdering: false };/* 
-    case "MAKE_ORDER_ASYNC":
-      localStorage.clear();
-      return { ...state, cart: [], isOrdering: false }; */
+      return state; /* Return empty cart: [] */
     default:
       return state;
     }
