@@ -14,17 +14,31 @@ import { logger } from 'redux-logger';
 import reducer from './reducers';
 import rootSaga from './rootSaga';
 
+import {saveState, loadState} from './localStorage'
+import throttle from 'lodash/throttle'
+
 import { BrowserRouter as Router } from "react-router-dom";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const sagaMiddleware = createSagaMiddleware();
 
+
+const persistedState = loadState()
 const store = createStore(
     reducer,
+    persistedState,
     composeEnhancers(applyMiddleware(sagaMiddleware, logger)),
 );
 
+store.subscribe( throttle(() => {
+    saveState({
+        cartItems: store.getState().cartItems
+    })
+}, 1000))
+
 sagaMiddleware.run(rootSaga);
+
+
 
 
 ReactDOM.render(
