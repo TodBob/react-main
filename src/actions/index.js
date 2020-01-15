@@ -8,7 +8,8 @@ import {
   SET_ORDERING,
   IS_ERROR,
   FETCH_PEOPLE_DATA,
-  FETCH_INFO_DATA
+  FETCH_INFO_DATA,
+  UPDATE_CART
 } from '../constants/actionTypes'
 
 export const peopleData = () => ({
@@ -55,5 +56,10 @@ export const fetchPeopleData = () => ({
 
 export const fetchInfoData = (data) => ({
   type: FETCH_INFO_DATA,
+  data
+})
+
+export const updateCart = (data) => ({
+  type: UPDATE_CART,
   data
 })

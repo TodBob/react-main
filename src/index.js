@@ -10,7 +10,6 @@ import 'typeface-roboto';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { logger } from 'redux-logger';
 import reducer from './reducers';
 import rootSaga from './rootSaga';
 
@@ -27,7 +26,7 @@ const persistedState = loadState()
 const store = createStore(
     reducer,
     persistedState,
-    composeEnhancers(applyMiddleware(sagaMiddleware, logger)),
+    composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
 store.subscribe( throttle(() => {
@@ -35,7 +34,6 @@ store.subscribe( throttle(() => {
         cartItems: store.getState().cartItems
     })
 }, 1000))
-
 sagaMiddleware.run(rootSaga);
 
 

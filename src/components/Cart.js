@@ -15,7 +15,6 @@ import { getOrdering } from "../selectors/isOrdering";
 
 let Cart = ({ cart, makeOrder, isOrdering }) => {
 
-
     let getSumm = cart.map(e => parseInt(e.height))
     let summ = getSumm.reduce((a, b) => a + b, 0)
     const summToLocale = summ.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })
@@ -33,7 +32,8 @@ let Cart = ({ cart, makeOrder, isOrdering }) => {
           <h1> Cart is empty </h1>
         )}
         <p>Price total: {summToLocale}</p>
-        {console.log("Ordering?? ", isOrdering)}
+
+        
         {cart.length > 0 ? (
           <Button
             variant="contained"
