@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { connect } from "react-redux";
-import { fetchInfoData, addToCart, removeFromCart } from "../actions";
+import { fetchInfoData, updateCart } from "../actions";
 import { Link } from "react-router-dom";
 
 import Loading from './Loading'
@@ -28,8 +28,7 @@ let ProductInfo = ({
   infoData,
   loading,
   cartItems,
-  addToCart,
-  removeFromCart
+  updateCart
 }) => {
   const { productId } = useParams();
   const isInCart = cartItems.find(e => e.created === infoData.created);
@@ -43,6 +42,8 @@ let ProductInfo = ({
     eye_color,
     gender
   } = infoData;
+
+  
 
   useEffect(() => {
     fetchInfoData(productId);
@@ -89,13 +90,13 @@ let ProductInfo = ({
                 </Link>
               </CardActions>
 
-              {isInCart ? (
-                <RemoveShoppingCartIcon className='shopping_cart'
-                  onClick={() => removeFromCart(infoData.created)}
-                />
-              ) : (
-                  <AddShoppingCartIcon className='shopping_cart' onClick={() => addToCart(infoData)} />
-                )}
+              <div onClick={() => updateCart(infoData)}>
+                {isInCart ? (
+                  <RemoveShoppingCartIcon className='shopping_cart' />
+                ) : (
+                    <AddShoppingCartIcon className='shopping_cart' />
+                  )}
+              </div>
             </div>
 
 
@@ -114,8 +115,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = {
   fetchInfoData,
-  addToCart,
-  removeFromCart
+  updateCart
 };
 ProductInfo = connect(mapStateToProps, mapDispatchToProps)(ProductInfo);
 

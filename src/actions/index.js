@@ -1,12 +1,9 @@
 import {
   GET_PEOPLE_DATA,
-  GET_DATA_INFO,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
   MAKE_ORDER,
   SET_LOADING,
   SET_ORDERING,
-  IS_ERROR,
+  SET_ERROR,
   FETCH_PEOPLE_DATA,
   FETCH_INFO_DATA,
   UPDATE_CART
@@ -15,21 +12,6 @@ import {
 export const peopleData = () => ({
   type: GET_PEOPLE_DATA
 });
-
-export const getDataInfo = data => ({
-  type: GET_DATA_INFO,
-  data
-});
-
-export const addToCart = data => ({
-  type: ADD_TO_CART,
-  data
-})
-
-export const removeFromCart = data => ({
-  type: REMOVE_FROM_CART,
-  data
-})
 
 export const makeOrder = () => ({
   type: MAKE_ORDER
@@ -45,8 +27,8 @@ export const setOrdering = (data) => ({
   data
 })
 
-export const isError = (data) => ({
-  type: IS_ERROR,
+export const setError = (data) => ({
+  type: SET_ERROR,
   data
 })
 
