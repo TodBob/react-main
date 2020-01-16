@@ -4,7 +4,7 @@ import mainSagas from './sagas'
 
 
 export default function* rootSaga() {
-    yield all([
-      ...mainSagas,
-    ])
-  }
+  yield all([
+    ...mainSagas,
+  ])
+}

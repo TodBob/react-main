@@ -4,22 +4,22 @@ import { connect } from 'react-redux'
 import Card from '../containers/Card'
 import Loading from '../containers/Loading'
 
-import { getDataArray } from '../selectors/peopleData'
+import { getPeopleData } from '../selectors/peopleData'
 
 
 
 let MainDataSection = ({ peopleData }) => (
-  peopleData ?
+  peopleData.length > 0 ?
     <div id='main'  >
       {peopleData.map(e => {
         return <Card key={e.created} data={e} />
       })}
     </div> :
     <Loading />
-);
+)
 
 const mapStateToProps = (state) => ({
-  peopleData: getDataArray(state),
+  peopleData: getPeopleData(state),
 })
 MainDataSection = connect(mapStateToProps, null)(MainDataSection)
 export default MainDataSection;

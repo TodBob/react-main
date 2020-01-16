@@ -1,10 +1,7 @@
-const initialState =  {}
+import { DATA_RECEIVED_INFO } from '../constants/actionTypes'
 
-export default function getInfoData(state = initialState, action) {
-    switch (action.type) {
-        case "DATA_RECEIVED_INFO":
-            return action.infoData
-        default:
-            return state
-    }
-}
+const initialState = {}
+
+export default (state = initialState, action) => (
+    action.type === DATA_RECEIVED_INFO ? action.infoData : state
+)

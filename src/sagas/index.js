@@ -5,7 +5,7 @@ import { fetchProductInfoSaga } from '../sagas/fetchProductInfoSaga'
 import { makeOrderSaga } from '../sagas/makeOrderSaga'
 import { updateCartSaga } from '../sagas/updateCartSaga'
 
-import {FETCH_PEOPLE_DATA, FETCH_INFO_DATA, MAKE_ORDER, UPDATE_CART} from '../constants/actionTypes'
+import { FETCH_PEOPLE_DATA, FETCH_INFO_DATA, MAKE_ORDER, UPDATE_CART } from '../constants/actionTypes'
 
 const mainSagas = [
     takeLatest(FETCH_PEOPLE_DATA, fetchPeopleDataSaga),

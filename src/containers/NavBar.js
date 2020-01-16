@@ -7,17 +7,17 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import HomeIcon from '@material-ui/icons/Home';
 
-import {getCartItems} from '../selectors/cartItems'
+import { getCartItems } from '../selectors/cartItems'
 
 
-let NavBar = ({cartItems}) => {
-  const isSomethingInCart = cartItems.length > 0 
+let NavBar = ({ cartItems }) => {
+  const isSomethingInCart = cartItems.length > 0
 
   return (
-   <div id='NavBar'>
-      <Link to="/"><HomeIcon/></Link>
-      <Link to="/cart">{ isSomethingInCart ? <ShoppingCartIcon /> : <ShoppingCartOutlinedIcon />}</Link>
-   </div>
+    <div id='NavBar'>
+      <Link to="/"><HomeIcon /></Link>
+      <Link to="/cart">{isSomethingInCart ? <ShoppingCartIcon /> : <ShoppingCartOutlinedIcon />}</Link>
+    </div>
   )
 };
 

@@ -5,7 +5,3 @@ export const getPeopleData = createSelector(
   (state) => state.peopleData,
 );
 
-export const getDataArray = createSelector(
-  getPeopleData,
-  (state) => state.data,
-);

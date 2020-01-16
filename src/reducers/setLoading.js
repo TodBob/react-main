@@ -1,12 +1,7 @@
-const initialState = {loading: false}
+import { SET_LOADING } from '../constants/actionTypes'
 
-export default function setLoading(state = initialState, action) {
-    switch (action.type) {
-        case "SET_LOADING":
-            return {
-                loading: action.data
-            };
-        default:
-            return state;
-    }
-}
+const initialState = false
+
+export default (state = initialState, action) => (
+    action.type === SET_LOADING ? action.data : state
+)

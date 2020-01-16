@@ -5,7 +5,7 @@ import infoData from './getInfoData'
 import cartItems from './cartItems'
 import error from './error'
 import isLoading from './setLoading'
-import setOrdering from './setOrdering'
+import isOrdering from './setOrdering'
 
 
 
@@ -15,7 +15,7 @@ export default combineReducers({
   cartItems,
   error,
   isLoading,
-  setOrdering
-})  
+  isOrdering
+})
 
 

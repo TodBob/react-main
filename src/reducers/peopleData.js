@@ -1,14 +1,8 @@
-const initialState =  []
+import { DATA_RECEIVED } from '../constants/actionTypes'
 
-export default function peopleData(state = initialState, action) {
-    switch (action.type) {
-        case "DATA_RECEIVED":
-            /* const storage = JSON.parse(localStorage.getItem("cart")); */
-            return {
-                data: action.data,
-                /* cartItems: storage ? storage : [] */
-            };
-        default:
-            return state;
-    }
-}
+const initialState = []
+
+export default (state = initialState, action) => (
+    action.type === DATA_RECEIVED ? action.data : state
+)
+

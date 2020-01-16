@@ -1,12 +1,7 @@
-const initialState =  {ordering: false}
+import { SET_ORDERING } from '../constants/actionTypes'
 
-export default function setOrdering(state = initialState, action) {
-    switch (action.type) {
-        case "SET_ORDERING":
-            return {
-                ordering: action.data
-            };
-        default:
-            return state;
-    }
-}
+const initialState = false
+
+export default (state = initialState, action) => (
+    action.type === SET_ORDERING ? action.data : state
+)

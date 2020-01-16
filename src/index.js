@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import rootSaga from './rootSaga';
 
-import {saveState, loadState} from './localStorage'
+import { saveState, loadState } from './localStorage'
 import throttle from 'lodash/throttle'
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -29,7 +29,7 @@ const store = createStore(
     composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
-store.subscribe( throttle(() => {
+store.subscribe(throttle(() => {
     saveState({
         cartItems: store.getState().cartItems
     })

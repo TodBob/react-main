@@ -1,12 +1,7 @@
-const initialState = {error: false}
+import { IS_ERROR } from '../constants/actionTypes'
 
-export default function error(state = initialState, action) {
-    switch (action.type) {
-        case "IS_ERROR":
-            return {
-                error: action.data
-            };
-        default:
-            return state;
-    }
-}
+const initialState = false
+
+export default (state = initialState, action) => (
+    action.type === IS_ERROR ? action.data : state
+)

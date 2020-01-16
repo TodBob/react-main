@@ -22,7 +22,7 @@ let SingleCard = ({ data, cartItems, updateCart }) => {
         showExpandableButton={false}
       />
       <CardText>
-        
+
         <div onClick={() => updateCart(data)}>
           {isInCart ? (
             <RemoveShoppingCartIcon className='shopping_cart' />
