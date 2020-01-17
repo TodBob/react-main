@@ -7,7 +7,6 @@ import Loading from '../containers/Loading'
 import { getPeopleData } from '../selectors/peopleData'
 
 
-
 let MainDataSection = ({ peopleData }) => (
   peopleData.length > 0 ?
     <div id='main'  >

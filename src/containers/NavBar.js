@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import HomeIcon from '@material-ui/icons/Home';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
+import HomeIcon from '@material-ui/icons/Home'
 
 import { getCartItems } from '../selectors/cartItems'
 
