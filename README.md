@@ -1,19 +1,19 @@
-**Right now I have Branch ,,Refactoring_whole_redux/saga,, where I started refactor a whole Redux implementation
+This is my main project which I'll send with CV as code preview. 
 
-This is my main project which I want send with CV as code preview. But this project is still in progress and need some love.
-Sometimes I try some new things, try to learn something new. And because of this, some parts will need refactor or restructer the code.
+This project is still in progress and need some love.
+Sometimes I try some new things to learn something new. And because of this, some parts will need refactor. 
 
 For this stage I didn't focus on styling. It's more about code and functionality.
 
 About project it self: 
-imagine is a some kind of shop. In this case you can buy Star Wars statues in life size. Place fake order. 
+Imagine this is a some kind of shop. In this case you can buy Star Wars statues in life size. Place fake order. 
 Every item added to cart will hold in LocalStorage until order is placed.
 
 Technical Info:
 I'm using Star Wars API https://swapi.co/ in this project. From this API I take just people data.
 
 Technologies used so far:
- - React, Redux, Saga, Logger, Router, LocalStorage
+ - React, Redux, Saga, Router, Lodash, Reselect. LocalStorage
  - Sass and Material-ui for css components (I normally use Bootstrap 4, but I want to try something different)
  
  Feature plans:
