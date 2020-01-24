@@ -1,44 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import * as serviceWorker from './serviceWorker'
 
-import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import 'typeface-roboto'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import 'typeface-roboto';
+import Root from './components/Root'
+import configureStore from './configureStore'
 
-import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import { logger } from 'redux-logger';
-import reducer from './reducers';
-import rootSaga from './sagas';
-
-import { BrowserRouter as Router } from "react-router-dom";
-
-
-const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(
-    reducer,
-    applyMiddleware(sagaMiddleware, logger),
-);
-
-sagaMiddleware.run(rootSaga);
-
-
+const store = configureStore()
 
 ReactDOM.render(
-    <Router>
-        <Provider store={store}>
-            <MuiThemeProvider>
-                <App />
-            </MuiThemeProvider>
-        </Provider>
-    </Router>,
-    document.getElementById('root'));
+    <Root store={store} />,
+    document.getElementById('root')
+);
 
-if (module.hot) { module.hot.accept(App); }
+/* if (module.hot) { module.hot.accept(App); } */
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

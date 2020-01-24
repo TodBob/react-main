@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import '../App.scss';
 
 import {
@@ -9,17 +9,17 @@ import {
 import MainDataSection from './MainDataSection'
 import Cart from './Cart'
 
-import ProductInfo from "../containers/ProductInfo";
+import ProductInfo from "../containers/ProductInfo"
 import NavBar from '../containers/NavBar'
 
-import { connect } from 'react-redux';
-import { getData } from '../actions'
+import { connect } from 'react-redux'
+import { fetchPeopleData } from '../actions'
 
-function App({getData}) {
+function App({ fetchPeopleData }) {
 
-  useEffect( () => {
-    getData()
-  },[] )
+  useEffect(() => {
+    fetchPeopleData()
+  }, [])
 
   return (
     <div id="app">
@@ -44,9 +44,9 @@ function App({getData}) {
 }
 
 const mapDispatchToProps = {
-  getData,
+  fetchPeopleData,
 };
 
 export default connect(null, mapDispatchToProps)(App)
- 
+
 

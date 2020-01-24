@@ -4,15 +4,15 @@ import { removeFromCart } from '../actions'
 
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-let CartItem = ({item, removeFromCart}) => {
+let CartItem = ({ item, removeFromCart }) => {
 
-    return(
+    return (
         <div className='cartItem'>
             <div className='nameDiv'>
-            <DeleteForeverIcon className='deleteIcon' onClick={() => removeFromCart(item.created)}/>
-            <span>{item.name}</span>
+                <DeleteForeverIcon className='deleteIcon' onClick={() => removeFromCart(item)} />
+                <span>{item.name}</span>
             </div>
-            
+
             <br />
             <span>{item.height} €</span>
         </div>
@@ -23,5 +23,5 @@ const mapDispatchToProps = {
     removeFromCart
 }
 
-CartItem = connect(null,mapDispatchToProps)(CartItem)
+CartItem = connect(null, mapDispatchToProps)(CartItem)
 export default CartItem

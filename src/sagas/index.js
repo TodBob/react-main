@@ -1,50 +1,21 @@
-import { put, takeLatest, all, actionChannel } from "redux-saga/effects";
-import { baseApi } from '../API/api'
+import { takeLatest } from 'redux-saga/effects';
 
+import { fetchPeopleDataSaga } from '../sagas/fetchPeopleDataSaga'
+import { fetchProductInfoSaga } from '../sagas/fetchProductInfoSaga'
+import { makeOrderSaga } from '../sagas/makeOrderSaga'
+import { updateCartSaga } from '../sagas/updateCartSaga'
+import { addToCartSaga } from '../sagas/addToCartSaga'
+import { removeFromCartSaga } from '../sagas/removeFromCartSaga'
 
-const delay = (ms) => new Promise(res => setTimeout(res, ms))
+import { FETCH_PEOPLE_DATA, FETCH_INFO_DATA, MAKE_ORDER, UPDATE_CART, REMOVE_FROM_CART, ADD_TO_CART } from '../constants/actionTypes'
 
-/* Initial Fetch call */
-function* fetchPeopleData() {
-    const json =
-        yield fetch(`${baseApi}people/`)
-            .then(response => response.json());
-    yield put({ type: "DATA_RECEIVED", data: json.results });
-}
+const mainSagas = [
+    takeLatest(FETCH_PEOPLE_DATA, fetchPeopleDataSaga),
+    takeLatest(FETCH_INFO_DATA, fetchProductInfoSaga),
+    takeLatest(MAKE_ORDER, makeOrderSaga),
+    takeLatest(UPDATE_CART, updateCartSaga),
+    takeLatest(ADD_TO_CART, addToCartSaga),
+    takeLatest(REMOVE_FROM_CART, removeFromCartSaga),
+];
 
-function* watchFetchPeopleData() {
-  yield takeLatest("GET_DATA", fetchPeopleData);
-}
-
-/* Fetch for product info */
-
-function* fetchProductInfo(productId) {
-    console.log("This is ID ", productId.payload);
-  
-    const json = 
-        yield fetch(`${baseApi}people/${productId.payload}`)
-        .then(response => response.json());
-    yield put({ type: "DATA_RECEIVED_INFO", infoData: json });
-}
-
-function* fetchProductInfoAsync() {
-  yield takeLatest("GET_DATA_INFO", fetchProductInfo);
-}
-
-/* Fake ASYNC CALL FOR ORDERING */
-
-function* makeOrderAsync() {
-    yield delay(3000)
-    yield put({type: "MAKE_ORDER_ASYNC"})
-}
-
-
-function* watchMakeOrderAsync() {
-    yield takeLatest('MAKE_ORDER', makeOrderAsync)
-  }
-
-
-/* Exporting Sagas */  
-export default function* rootSaga() {
-    yield all([watchFetchPeopleData(), watchMakeOrderAsync(), fetchProductInfoAsync()]);
-}
+export default mainSagas;
