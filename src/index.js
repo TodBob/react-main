@@ -7,8 +7,6 @@ import 'typeface-roboto'
 import Root from './components/Root'
 import configureStore from './configureStore'
 
-/* import App from './components/App' */
-
 const store = configureStore()
 
 ReactDOM.render(

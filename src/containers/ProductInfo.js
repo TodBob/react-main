@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { connect } from "react-redux";
-import { fetchInfoData, updateCart } from "../actions";
+import { fetchInfoData, removeFromCart, addToCart } from "../actions";
 import { Link } from "react-router-dom";
 
 import Loading from './Loading'
@@ -28,7 +28,8 @@ let ProductInfo = ({
   infoData,
   loading,
   cartItems,
-  updateCart
+  removeFromCart, 
+  addToCart
 }) => {
   const { productId } = useParams();
   const isInCart = cartItems.find(e => e.created === infoData.created);
@@ -90,13 +91,12 @@ let ProductInfo = ({
                 </Link>
               </CardActions>
 
-              <div onClick={() => updateCart(infoData)}>
+             
                 {isInCart ? (
-                  <RemoveShoppingCartIcon className='shopping_cart' />
+                  <RemoveShoppingCartIcon className='shopping_cart' onClick={() => removeFromCart(infoData)}/>
                 ) : (
-                    <AddShoppingCartIcon className='shopping_cart' />
+                    <AddShoppingCartIcon className='shopping_cart' onClick={() => addToCart(infoData)}/>
                   )}
-              </div>
             </div>
 
 
@@ -115,7 +115,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = {
   fetchInfoData,
-  updateCart
+  removeFromCart, 
+  addToCart
 };
 ProductInfo = connect(mapStateToProps, mapDispatchToProps)(ProductInfo);
 

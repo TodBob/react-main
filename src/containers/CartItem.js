@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateCart } from '../actions'
+import { removeFromCart } from '../actions'
 
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-let CartItem = ({ item, updateCart }) => {
+let CartItem = ({ item, removeFromCart }) => {
 
     return (
         <div className='cartItem'>
             <div className='nameDiv'>
-                <DeleteForeverIcon className='deleteIcon' onClick={() => updateCart(item)} />
+                <DeleteForeverIcon className='deleteIcon' onClick={() => removeFromCart(item)} />
                 <span>{item.name}</span>
             </div>
 
@@ -20,7 +20,7 @@ let CartItem = ({ item, updateCart }) => {
 }
 
 const mapDispatchToProps = {
-    updateCart
+    removeFromCart
 }
 
 CartItem = connect(null, mapDispatchToProps)(CartItem)

@@ -7,11 +7,11 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
 import { connect } from 'react-redux'
-import { updateCart } from '../actions'
+import { addToCart, removeFromCart } from '../actions'
 
 import { getCartItems } from '../selectors/cartItems'
 
-let SingleCard = ({ data, cartItems, updateCart }) => {
+let SingleCard = ({ data, cartItems, addToCart, removeFromCart }) => {
   const isInCart = cartItems.find(e => e.created === data.created)
 
   return (
@@ -23,13 +23,11 @@ let SingleCard = ({ data, cartItems, updateCart }) => {
       />
       <CardText>
 
-        <div onClick={() => updateCart(data)}>
-          {isInCart ? (
-            <RemoveShoppingCartIcon className='shopping_cart' />
+        {isInCart ? (
+            <RemoveShoppingCartIcon className='shopping_cart'  onClick={() => removeFromCart(data)}/>
           ) : (
-              <AddShoppingCartIcon className='shopping_cart' />
+              <AddShoppingCartIcon className='shopping_cart'  onClick={() => addToCart(data)}/>
             )}
-        </div>
 
         <ul>
           <li>{`height: ${data.height}`}</li>
@@ -51,7 +49,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  updateCart
+  addToCart,
+  removeFromCart
 }
 
 SingleCard = connect(mapStateToProps, mapDispatchToProps)(SingleCard)

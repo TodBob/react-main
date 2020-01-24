@@ -6,7 +6,10 @@ import {
   SET_ERROR,
   FETCH_PEOPLE_DATA,
   FETCH_INFO_DATA,
-  UPDATE_CART
+  UPDATE_CART,
+  ADD_TO_CART,
+  REMOVE_FROM_CART
+
 } from '../constants/actionTypes'
 
 export const peopleData = () => ({
@@ -43,5 +46,15 @@ export const fetchInfoData = (data) => ({
 
 export const updateCart = (data) => ({
   type: UPDATE_CART,
+  data
+})
+
+export const addToCart = (data) => ({
+  type: ADD_TO_CART,
+  data
+})
+
+export const removeFromCart = (data) => ({
+  type: REMOVE_FROM_CART,
   data
 })

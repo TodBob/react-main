@@ -12,6 +12,8 @@ export const FETCH_INFO_DATA = 'FETCH_INFO_DATA'
 
 export const SET_CART_ITEMS = 'SET_CART_ITEMS'
 export const UPDATE_CART = 'UPDATE_CART'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const ADD_TO_CART = 'ADD_TO_CART'
 
 export const DATA_RECEIVED_INFO = 'DATA_RECEIVED_INFO'
 export const DATA_RECEIVED = 'DATA_RECEIVED'
