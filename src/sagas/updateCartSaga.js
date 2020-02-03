@@ -2,12 +2,9 @@ import { put, select } from "redux-saga/effects";
 import { getCartItems } from '../selectors/cartItems'
 import { SET_CART_ITEMS } from '../constants/actionTypes'
 
-import xorBy from 'lodash/fp/xorBy';
-
-/* This is a best solution for remove and add items in cart, BUT
-It didnt work as expected. After reload a page or check for more info which make new API call, will this Func. broke
-
-I will still like to holde this here for feature*/
+//import xorBy from 'lodash/fp/xorBy';
+//xorBy from /fp/ repository dint work on 100%.  
+import xorBy from 'lodash/xorBy'; 
 
 export function* updateCartSaga(action) {
     const cartItems = yield select(getCartItems)
