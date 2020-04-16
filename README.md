@@ -1,9 +1,10 @@
+***************** ERROR *****************
+This app is not working corectly right now. 
+I have used this API https://swapi.co/ but It isnt exist anymore.
+I have to find some new API and fix it
+********************************************
+
 This is my main project which I'll send with CV as code preview. 
-
-This project is still in progress and need some love.
-Sometimes I try some new things to learn something new. And because of this, some parts will need refactor. 
-
-For this stage I didn't focus on styling. It's more about code and functionality.
 
 About project it self: 
 Imagine this is a some kind of shop. In this case you can buy Star Wars statues in life size. Place fake order. 
