@@ -1,7 +1,7 @@
 ************
-IMPORTANT INFO:
+IMPORTANT INFO: <br>
 Right now I'm using this API: https://swapi.py4e.com/api/
-I cant guarantee It will work in time you will be testing this App. It's a free RESTfull API for testing
+I cant guarantee It will work in time you will be testing this App. It's a free RESTfull API for testing.
 Previously this API was https://swapi.co/api/ but It stopped working.
 
 So I'm sorry if you may have some issue. But if you find any? Please contact me. 
