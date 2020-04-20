@@ -13,6 +13,7 @@ import { getCartItems } from '../selectors/cartItems'
 
 let SingleCard = ({ data, cartItems, updateCart }) => {
   const isInCart = cartItems.find(e => e.created === data.created)
+  console.log('This is data: ', data)
 
   return (
     <Card>
@@ -39,7 +40,7 @@ let SingleCard = ({ data, cartItems, updateCart }) => {
         <hr />
         <div className='card_footer'>
           <span>{`Price: ${data.height} €`}</span>
-          <Link to={`/product/${data.url.match(/\d+/g)}`}>More Info</Link>
+          <Link to={`/product/${data.url.match(/\d+(?=\D*$)/)[0]}`}>More Info</Link>
         </div>
       </CardText>
     </Card>
