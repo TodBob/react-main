@@ -13,7 +13,6 @@ import { getCartItems } from '../selectors/cartItems'
 
 let SingleCard = ({ data, cartItems, updateCart }) => {
   const isInCart = cartItems.find(e => e.created === data.created)
-  console.log('This is data: ', data)
 
   return (
     <Card>
