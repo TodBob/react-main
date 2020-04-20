@@ -1,8 +1,14 @@
-***************** ERROR *****************
-This app is not working corectly right now. 
-I have used this API https://swapi.co/ but It isnt exist anymore.
-I have to find some new API and fix it
-********************************************
+************
+IMPORTANT INFO:
+Right now I'm using this API: https://swapi.py4e.com/api/
+I cant guarantee It will work in time you will be testing this App. It's a free RESTfull API for testing
+Previously this API was https://swapi.co/api/ but It stopped working.
+
+So I'm sorry if you may have some issue. But if you find any? Please contact me. 
+
+Thank you!!
+
+**************************
 
 This is my main project which I'll send with CV as code preview. 
 
