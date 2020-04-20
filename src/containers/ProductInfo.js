@@ -45,7 +45,7 @@ let ProductInfo = ({
 
   useEffect(() => {
     fetchInfoData(productId);
-  }, []);
+  }, [fetchInfoData, productId]);
 
   return (
     <div className="productInfo">

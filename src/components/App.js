@@ -19,7 +19,7 @@ function App({ fetchPeopleData }) {
 
   useEffect(() => {
     fetchPeopleData()
-  }, [])
+  }, [fetchPeopleData])
 
   return (
     <div id="app">
