@@ -1,8 +1,8 @@
 ************
 IMPORTANT INFO: <br>
-Right now I'm using this API: https://swapi.py4e.com/api/
+Right now I'm using this API: https://swapi.py4e.com/
 I cant guarantee It will work in time you will be testing this App. It's a free RESTfull API for testing.
-Previously this API was https://swapi.co/api/ but It stopped working.
+Previously this API was https://swapi.co/ but It stopped working.
 
 So I'm sorry if you may have some issue. But if you find any? Please contact me. 
 
@@ -17,16 +17,11 @@ Imagine this is a some kind of shop. In this case you can buy Star Wars statues 
 Every item added to cart will hold in LocalStorage until order is placed.
 
 Technical Info:
-I'm using Star Wars API https://swapi.co/ in this project. From this API I take just people data.
+I'm using Star Wars API https://swapi.py4e.com in this project. From this API I take just people data.
 
 Technologies used so far:
  - React, Redux, Saga, Router, Lodash, Reselect. LocalStorage
- - Sass and Material-ui for css components (I normally use Bootstrap 4, but I want to try something different)
- 
- Feature plans:
- - for ordering add Forms with usage of Formik library
- - and finally add some styling
- 
+ - Sass and Material-ui
 
 
 
