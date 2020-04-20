@@ -43,8 +43,6 @@ let ProductInfo = ({
     gender
   } = infoData;
 
-console.log('This is ID: ', useParams())
-
   useEffect(() => {
     fetchInfoData(productId);
   }, []);
