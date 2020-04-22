@@ -1,16 +1,15 @@
-html, body {
-    margin: 0;
-    height: 110vh;
+html,
+body {
+  margin: 0;
+  height: 110vh;
 }
 
-
 #app {
-    
-    .shopping_cart {
-        cursor: pointer;
-    }
+  .shopping_cart {
+    cursor: pointer;
+  }
 
-#main {
+  #main {
     width: 90%;
     max-width: 900px;
     margin: 50px auto;
@@ -19,48 +18,34 @@ html, body {
     grid-column-gap: 10px;
     grid-row-gap: 15px;
 
-
     span {
-        white-space: nowrap;
+      white-space: nowrap;
     }
 
-    
-
-
-
-    @media(max-width: 1000px) {
-        grid-template-columns: 1fr 1fr;
-        
+    @media (max-width: 1000px) {
+      grid-template-columns: 1fr 1fr;
     }
 
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      text-align: center;
 
-    @media(max-width: 600px) {
-        grid-template-columns: 1fr;
-        text-align: center;
-    
-        li {
-            list-style: none;
-        }
+      li {
+        list-style: none;
+      }
 
-        ul {
-            padding-left: 0;
-        }
+      ul {
+        padding-left: 0;
+      }
 
-        div {
-            padding: 5px !important;
-        }
+      div {
+        padding: 5px !important;
+      }
     }
-    
-}
+  }
 
-
-
-.card_footer {
+  .card_footer {
     display: flex;
     justify-content: space-between;
-}
-
-
-
-
+  }
 }

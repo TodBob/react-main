@@ -7,15 +7,11 @@ import isError from './setError'
 import isLoading from './setLoading'
 import isOrdering from './setOrdering'
 
-
-
 export default combineReducers({
   peopleData,
   infoData,
   cartItems,
   isError,
   isLoading,
-  isOrdering
+  isOrdering,
 })
-
-

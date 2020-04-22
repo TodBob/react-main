@@ -6,43 +6,42 @@ import {
   SET_ERROR,
   FETCH_PEOPLE_DATA,
   FETCH_INFO_DATA,
-  UPDATE_CART
-
+  UPDATE_CART,
 } from '../constants/actionTypes'
 
 export const peopleData = () => ({
-  type: GET_PEOPLE_DATA
-});
+  type: GET_PEOPLE_DATA,
+})
 
 export const makeOrder = () => ({
-  type: MAKE_ORDER
+  type: MAKE_ORDER,
 })
 
 export const setLoading = (data) => ({
   type: SET_LOADING,
-  data
+  data,
 })
 
 export const setOrdering = (data) => ({
   type: SET_ORDERING,
-  data
+  data,
 })
 
 export const setError = (data) => ({
   type: SET_ERROR,
-  data
+  data,
 })
 
 export const fetchPeopleData = () => ({
-  type: FETCH_PEOPLE_DATA
+  type: FETCH_PEOPLE_DATA,
 })
 
 export const fetchInfoData = (data) => ({
   type: FETCH_INFO_DATA,
-  data
+  data,
 })
 
 export const updateCart = (data) => ({
   type: UPDATE_CART,
-  data
+  data,
 })
