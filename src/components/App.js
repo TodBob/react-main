@@ -15,7 +15,7 @@ import { fetchPeopleData } from '../actions'
 function App({ fetchPeopleData }) {
   useEffect(() => {
     fetchPeopleData()
-  }, [fetchPeopleData])
+  }, [])
 
   return (
     <div id="app">

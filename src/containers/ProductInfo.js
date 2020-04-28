@@ -42,59 +42,59 @@ let ProductInfo = ({
 
   useEffect(() => {
     fetchInfoData(productId)
-  }, [fetchInfoData, productId])
+  }, [])
 
   return (
     <div className="productInfo">
       {loading ? (
         <Loading />
       ) : (
-        <Card className="card" variant="outlined">
-          <CardContent>
-            <Typography className="title" color="textSecondary" gutterBottom>
-              {name}
+          <Card className="card" variant="outlined">
+            <CardContent>
+              <Typography className="title" color="textSecondary" gutterBottom>
+                {name}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {bull} Height: {height}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {bull} Weight: {mass}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {bull} Color of hair: {hair_color}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {bull} Color of skin: {skin_color}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {bull} Color of eyes: {eye_color}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {bull} Gender: {gender}
+              </Typography>
+              <hr />
+              <Typography variant="body2" component="p">
+                Price: {height} €
             </Typography>
-            <Typography variant="body2" component="p">
-              {bull} Height: {height}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {bull} Weight: {mass}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {bull} Color of hair: {hair_color}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {bull} Color of skin: {skin_color}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {bull} Color of eyes: {eye_color}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {bull} Gender: {gender}
-            </Typography>
-            <hr />
-            <Typography variant="body2" component="p">
-              Price: {height} €
-            </Typography>
-          </CardContent>
+            </CardContent>
 
-          <div className="footer">
-            <CardActions>
-              <Link to="/">
-                <Button size="small">Back</Button>
-              </Link>
-            </CardActions>
+            <div className="footer">
+              <CardActions>
+                <Link to="/">
+                  <Button size="small">Back</Button>
+                </Link>
+              </CardActions>
 
-            <div onClick={() => updateCart(infoData)}>
-              {isInCart ? (
-                <RemoveShoppingCartIcon className="shopping_cart" />
-              ) : (
-                <AddShoppingCartIcon className="shopping_cart" />
-              )}
+              <div onClick={() => updateCart(infoData)}>
+                {isInCart ? (
+                  <RemoveShoppingCartIcon className="shopping_cart" />
+                ) : (
+                    <AddShoppingCartIcon className="shopping_cart" />
+                  )}
+              </div>
             </div>
-          </div>
-        </Card>
-      )}
+          </Card>
+        )}
     </div>
   )
 }
