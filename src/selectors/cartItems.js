@@ -4,4 +4,3 @@ export const getCartItems = createSelector(
   (state) => state,
   (state) => state.cartItems,
 );
-

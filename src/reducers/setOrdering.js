@@ -1,6 +1,7 @@
-import { SET_ORDERING } from '../constants/actionTypes'
+import { SET_ORDERING } from '../constants/actionTypes';
 
-const initialState = false
+const initialState = false;
 
-export default (state = initialState, action) =>
+export default (state = initialState, action) => (
   action.type === SET_ORDERING ? action.data : state
+);

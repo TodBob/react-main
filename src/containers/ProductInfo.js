@@ -1,113 +1,141 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { connect } from 'react-redux'
-import { fetchInfoData, updateCart } from '../actions'
-import { Link } from 'react-router-dom'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
-import Loading from './Loading'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { fetchInfoData, updateCart } from '../actions';
+import Loading from './Loading';
 
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
+import { getInfoData } from '../selectors/infoData';
+import { getLoading } from '../selectors/loading';
+import { getCartItems } from '../selectors/cartItems';
 
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-
-import { getInfoData } from '../selectors/infoData'
-import { getLoading } from '../selectors/loading'
-import { getCartItems } from '../selectors/cartItems'
-
-let ProductInfo = ({
-  fetchInfoData,
+const ProductInfo = ({
+  fetchInfoData: fetchInfoDataList,
   infoData,
   loading,
   cartItems,
-  updateCart,
+  updateCart: updateCartItems,
 }) => {
-  const { productId } = useParams()
-  const isInCart = cartItems.find((e) => e.created === infoData.created)
-  const bull = <span className="bullet">•</span>
+  const { productId } = useParams();
+  const isInCart = cartItems.find((e) => e.created === infoData.created);
+  const bull = <span className="bullet">•</span>;
   const {
     name,
     height,
     mass,
-    hair_color,
-    skin_color,
-    eye_color,
+    hair_color: hairColor,
+    skin_color: skinColor,
+    eye_color: eyeColor,
     gender,
-  } = infoData
+  } = infoData;
 
   useEffect(() => {
-    fetchInfoData(productId)
-  }, [])
+    fetchInfoDataList(productId);
+  }, []);
 
   return (
     <div className="productInfo">
       {loading ? (
         <Loading />
       ) : (
-          <Card className="card" variant="outlined">
-            <CardContent>
-              <Typography className="title" color="textSecondary" gutterBottom>
-                {name}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {bull} Height: {height}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {bull} Weight: {mass}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {bull} Color of hair: {hair_color}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {bull} Color of skin: {skin_color}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {bull} Color of eyes: {eye_color}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {bull} Gender: {gender}
-              </Typography>
-              <hr />
-              <Typography variant="body2" component="p">
-                Price: {height} €
+        <Card className="card" variant="outlined">
+          <CardContent>
+            <Typography className="title" color="textSecondary" gutterBottom>
+              {name}
             </Typography>
-            </CardContent>
+            <Typography variant="body2" component="p">
+              {bull}
+              {' '}
+              Height:
+              {height}
+            </Typography>
+            <Typography variant="body2" component="p">
+              {bull}
+              {' '}
+              Weight:
+              {mass}
+            </Typography>
+            <Typography variant="body2" component="p">
+              {bull}
+              {' '}
+              Color of hair:
+              {hairColor}
+            </Typography>
+            <Typography variant="body2" component="p">
+              {bull}
+              {' '}
+              Color of skin:
+              {skinColor}
+            </Typography>
+            <Typography variant="body2" component="p">
+              {bull}
+              {' '}
+              Color of eyes:
+              {eyeColor}
+            </Typography>
+            <Typography variant="body2" component="p">
+              {bull}
+              {' '}
+              Gender:
+              {gender}
+            </Typography>
+            <hr />
+            <Typography variant="body2" component="p">
+              Price:
+              {' '}
+              {height}
+              {' '}
+              €
+            </Typography>
+          </CardContent>
 
-            <div className="footer">
-              <CardActions>
-                <Link to="/">
-                  <Button size="small">Back</Button>
-                </Link>
-              </CardActions>
+          <div className="footer">
+            <CardActions>
+              <Link to="/">
+                <Button size="small">Back</Button>
+              </Link>
+            </CardActions>
 
-              <div onClick={() => updateCart(infoData)}>
-                {isInCart ? (
-                  <RemoveShoppingCartIcon className="shopping_cart" />
-                ) : (
-                    <AddShoppingCartIcon className="shopping_cart" />
-                  )}
-              </div>
+            <div onClick={() => updateCartItems(infoData)}>
+              {isInCart ? (
+                <RemoveShoppingCartIcon className="shopping_cart" />
+              ) : (
+                <AddShoppingCartIcon className="shopping_cart" />
+              )}
             </div>
-          </Card>
-        )}
+          </div>
+        </Card>
+      )}
     </div>
-  )
-}
+  );
+};
+
+ProductInfo.propTypes = {
+  fetchInfoData: PropTypes.func,
+  infoData: PropTypes.object,
+  loading: PropTypes.bool,
+  cartItems: PropTypes.object,
+  updateCart: PropTypes.func,
+};
 
 const mapStateToProps = (state) => ({
   infoData: getInfoData(state),
   loading: getLoading(state),
   cartItems: getCartItems(state),
-})
+});
 const mapDispatchToProps = {
   fetchInfoData,
   updateCart,
-}
-ProductInfo = connect(mapStateToProps, mapDispatchToProps)(ProductInfo)
+};
 
-export default ProductInfo
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductInfo);

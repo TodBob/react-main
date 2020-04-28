@@ -1,6 +1,7 @@
-import { DATA_RECEIVED_INFO } from '../constants/actionTypes'
+import { DATA_RECEIVED_INFO } from '../constants/actionTypes';
 
-const initialState = {}
+const initialState = {};
 
-export default (state = initialState, action) =>
+export default (state = initialState, action) => (
   action.type === DATA_RECEIVED_INFO ? action.infoData : state
+);

@@ -1,21 +1,22 @@
-import React, { useEffect } from 'react'
-import '../App.scss'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import '../App.scss';
 
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
-import MainDataSection from './MainDataSection'
-import Cart from './Cart'
+import { connect } from 'react-redux';
+import MainDataSection from './MainDataSection';
+import Cart from './Cart';
 
-import ProductInfo from '../containers/ProductInfo'
-import NavBar from '../containers/NavBar'
+import ProductInfo from '../containers/ProductInfo';
+import NavBar from '../containers/NavBar';
 
-import { connect } from 'react-redux'
-import { fetchPeopleData } from '../actions'
+import { fetchPeopleData } from '../actions';
 
-function App({ fetchPeopleData }) {
+const App = ({ fetchPeopleData: fetchData }) => {
   useEffect(() => {
-    fetchPeopleData()
-  }, [])
+    fetchData();
+  }, []);
 
   return (
     <div id="app">
@@ -36,11 +37,15 @@ function App({ fetchPeopleData }) {
         </Route>
       </Switch>
     </div>
-  )
-}
+  );
+};
+
+App.propTypes = {
+  fetchPeopleData: PropTypes.func,
+};
 
 const mapDispatchToProps = {
   fetchPeopleData,
-}
+};
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App);

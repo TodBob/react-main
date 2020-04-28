@@ -1,0 +1,84 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react-hooks"
+    ],
+    "extends": "airbnb",
+    "rules": {
+        "semi": "error",
+        "strict": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "no-use-before-define": [
+            0,
+            {
+                "functions": true,
+                "classes": true
+            }
+        ],
+        "react/require-default-props": [
+            0,
+            {
+                "forbidDefaultForRequired": false
+            }
+        ],
+        "react/forbid-prop-types": [
+            0,
+            {
+                "forbid": [
+                    "object"
+                ],
+                "checkContextTypes": false,
+                "checkChildContextTypes": false
+            }
+        ],
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": [
+            0,
+            {
+                "devDependencies": true,
+                "optionalDependencies": true,
+                "peerDependencies": true
+            }
+        ],
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/control-has-associated-label": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "react/self-closing-comp": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": [
+                    "src"
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        },
+    },
+}

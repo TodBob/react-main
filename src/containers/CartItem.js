@@ -1,29 +1,36 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { updateCart } from '../actions'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import { updateCart } from '../actions';
 
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 
-let CartItem = ({ item, updateCart }) => {
-  return (
-    <div className="cartItem">
-      <div className="nameDiv">
-        <DeleteForeverIcon
-          className="deleteIcon"
-          onClick={() => updateCart(item)}
-        />
-        <span>{item.name}</span>
-      </div>
-
-      <br />
-      <span>{item.height} €</span>
+const CartItem = ({ item, updateCart: updateCartItems }) => (
+  <div className="cartItem">
+    <div className="nameDiv">
+      <DeleteForeverIcon
+        className="deleteIcon"
+        onClick={() => updateCartItems(item)}
+      />
+      <span>{item.name}</span>
     </div>
-  )
-}
+
+    <br />
+    <span>
+      {item.height}
+      {' '}
+      €
+    </span>
+  </div>
+);
+
+CartItem.propTypes = {
+  item: PropTypes.object,
+  updateCart: PropTypes.func,
+};
 
 const mapDispatchToProps = {
   updateCart,
-}
+};
 
-CartItem = connect(null, mapDispatchToProps)(CartItem)
-export default CartItem
+export default connect(null, mapDispatchToProps)(CartItem);

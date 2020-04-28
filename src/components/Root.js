@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import App from './App'
+import App from './App';
 
 const Root = ({ store }) => (
   <Router>
@@ -14,6 +15,10 @@ const Root = ({ store }) => (
       </MuiThemeProvider>
     </Provider>
   </Router>
-)
+);
 
-export default Root
+Root.propTypes = {
+  store: PropTypes.object,
+};
+
+export default Root;

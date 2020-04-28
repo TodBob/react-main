@@ -1,16 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import HomeIcon from '@material-ui/icons/Home';
 
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
-import HomeIcon from '@material-ui/icons/Home'
+import { getCartItems } from '../selectors/cartItems';
 
-import { getCartItems } from '../selectors/cartItems'
-
-let NavBar = ({ cartItems }) => {
-  const isSomethingInCart = cartItems.length > 0
+const NavBar = ({ cartItems }) => {
+  const isSomethingInCart = cartItems.length > 0;
 
   return (
     <div id="NavBar">
@@ -25,12 +25,16 @@ let NavBar = ({ cartItems }) => {
         )}
       </Link>
     </div>
-  )
-}
+  );
+};
+
+NavBar.propTypes = {
+  cartItems: PropTypes.object,
+};
 
 const mapStateToProps = (state) => ({
   cartItems: getCartItems(state),
-})
+});
 
-NavBar = connect(mapStateToProps, null)(NavBar)
-export default NavBar
+
+export default connect(mapStateToProps, null)(NavBar);
