@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../App.scss';
+import './App.scss';
 
 import { Switch, Route } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import MainDataSection from './MainDataSection';
-import Cart from './Cart';
+import MainDataSection from './pages/MainDataSection';
+import Cart from './pages/Cart';
 
-import ProductInfo from '../containers/ProductInfo';
-import NavBar from '../containers/NavBar';
+import ProductInfo from './components/ProductInfo';
+import NavBar from './components/NavBar';
 
-import { fetchPeopleData } from '../actions';
+import { fetchPeopleData } from './actions';
 
 const App = ({ fetchPeopleData: fetchData }) => {
   useEffect(() => {

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import 'typeface-roboto';
 
-import Root from './components/Root';
+import Root from './Root';
 import configureStore from './configureStore';
 
 const store = configureStore();

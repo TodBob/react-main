@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
 
-import CartItem from '../containers/CartItem';
+import CartItem from '../components/CartItem';
 
 import { makeOrder } from '../actions';
 

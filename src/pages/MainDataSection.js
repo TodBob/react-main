@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Card from '../containers/Card';
-import Loading from '../containers/Loading';
+import Card from '../components/Card';
+import Loading from '../components/Loading';
 
 import { getPeopleData } from '../selectors/peopleData';
 
