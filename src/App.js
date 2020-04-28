@@ -16,6 +16,7 @@ import { fetchPeopleData } from './actions';
 const App = ({ fetchPeopleData: fetchData }) => {
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
