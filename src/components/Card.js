@@ -1,19 +1,19 @@
-import React from 'react'
-import { Card, CardHeader, CardText } from 'material-ui/Card'
+import React from 'react';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
+import { connect } from 'react-redux';
+import { updateCart } from '../actions';
 
-import { connect } from 'react-redux'
-import { updateCart } from '../actions'
+import { getCartItems } from '../selectors/cartItems';
 
-import { getCartItems } from '../selectors/cartItems'
+const SingleCard = ({ data, cartItems, updateCart: updateCartItems }) => {
+  const isInCart = cartItems.find((e) => e.created === data.created);
 
-let SingleCard = ({ data, cartItems, updateCart }) => {
-  const isInCart = cartItems.find((e) => e.created === data.created)
-  console.log(data)
   return (
     <Card>
       <CardHeader
@@ -22,7 +22,7 @@ let SingleCard = ({ data, cartItems, updateCart }) => {
         showExpandableButton={false}
       />
       <CardText>
-        <div onClick={() => updateCart(data)}>
+        <div onClick={() => updateCartItems(data)}>
           {isInCart ? (
             <RemoveShoppingCartIcon className="shopping_cart" />
           ) : (
@@ -44,16 +44,21 @@ let SingleCard = ({ data, cartItems, updateCart }) => {
         </div>
       </CardText>
     </Card>
-  )
-}
+  );
+};
+
+SingleCard.propTypes = {
+  data: PropTypes.object,
+  cartItems: PropTypes.object,
+  updateCart: PropTypes.func,
+};
 
 const mapStateToProps = (state) => ({
   cartItems: getCartItems(state),
-})
+});
 
 const mapDispatchToProps = {
   updateCart,
-}
+};
 
-SingleCard = connect(mapStateToProps, mapDispatchToProps)(SingleCard)
-export default SingleCard
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCard);

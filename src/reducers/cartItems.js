@@ -1,6 +1,7 @@
-import { SET_CART_ITEMS } from '../constants/actionTypes'
+import { SET_CART_ITEMS } from '../constants/actionTypes';
 
-const initialState = []
+const initialState = [];
 
-export default (state = initialState, action) =>
+export default (state = initialState, action) => (
   action.type === SET_CART_ITEMS ? action.data : state
+);

@@ -4,4 +4,3 @@ export const getPeopleData = createSelector(
   (state) => state,
   (state) => state.peopleData,
 );
-
